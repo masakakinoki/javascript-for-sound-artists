@@ -1,0 +1,15 @@
+.app{
+	width:710px;
+	margin: 0 auto;
+	position:relative;
+	top:50px;
+
+}
+
+.box{
+	display:inline-block;
+	outline-style:solid;
+	outline-color:orange;
+	width:350px;
+	background-color:rgba(29, 32, 121, 0.36);
+}

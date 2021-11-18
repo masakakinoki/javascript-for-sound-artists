@@ -1,0 +1,48 @@
+body{
+	background-color:orange;
+	font-family: "Arial";
+}
+
+#sawtooth{
+	background-color: #336E91;
+}
+#sine{
+	background-color: #783d47;
+}
+#triangle{
+	background-color: #3b3040;
+}
+#square{
+	background-color: #b85635;
+}
+
+p,span,li,input{   
+	font-size:1.5em;
+}
+
+
+.osc-controls {
+	border-style:solid;
+	border-color: #BC6527;
+	border-width: 2px;
+	border-radius:10px;
+	margin-bottom:20px;
+}
+
+div{
+	padding:20px;
+}
+
+#oscillator-list li{ 
+	list-style-type: none;
+	color:white;
+}
+
+#oscillator-list{
+	padding-left:0px;
+}
+
+
+
+
+

@@ -1,0 +1,43 @@
+body{
+  background-color:purple;
+}
+
+h1{
+  font-family:"impact";
+  color:rgb(228, 208, 230);
+  margin-left:10%;
+  font-size:70px;
+}
+
+li {
+  list-style:none;
+  float:left;
+  display:inline;
+  width:40px;
+  position:relative;
+}
+
+.white-key{
+  display:block;
+  height:220px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:0 0 3px 3px;
+}
+
+
+
+/* Black keys */
+.black-key {
+  display:inline-block;
+  position:absolute;
+  top:0px;
+  left:-12px;
+  width:25px;
+  height:125px;
+  background:#000;
+  z-index:1;
+
+}
+
+

@@ -1,0 +1,20 @@
+.box{
+	display:inline-block;
+	width:500px;
+	height:50px;
+	outline-style:solid;
+	outline-color:orange;
+	margin:0 auto;
+	background-color:rgba(29, 32, 121, 0.36);
+	font-size:2em;
+	padding-left:110px;
+
+}
+.container{
+
+	margin:0 auto;
+	width:1250px;
+
+		margin-top:100px;
+}
+
