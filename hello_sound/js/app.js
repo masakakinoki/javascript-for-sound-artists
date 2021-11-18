@@ -8,7 +8,9 @@ var tri = "triangle";
 var square = "square";
 // a variable intended to contain one of these waveforms
 var currentWaveform = undefined
+console.log(currentWaveform); 
 currentWaveform = square;
+console.log(currentWaveform); 
 // start of oscillator
 var osc = audioContext.createOscillator();
 osc.type = currentWaveform; // Assigned it to our oscilator type
