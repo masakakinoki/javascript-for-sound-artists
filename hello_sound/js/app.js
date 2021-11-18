@@ -1,6 +1,14 @@
 "use strict";
 
 // 4 variables that represent oscillator waveforms
+var oscillator = "saw" + "tooth";
+console.log(oscillator);
+var phrase = "This sound is an ";
+var soundType = "oscillator";
+var sentence = phrase + soundType;
+console.log(sentence);
+var myFavoriteSynthCompany = "My favorite synth company is Moog";
+console.log(myFavoriteSynthCompany.length);
 var audioContext = new AudioContext();
 var saw = "sawtooth";
 var sine = "sine";
