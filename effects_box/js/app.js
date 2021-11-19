@@ -37,3 +37,4 @@ function effectsBox(sourceInput, filterParam){
 }
 
 effectsBox(customSound, 130);
+ctx = new(window.AudioContext || window.webkitAudioContext);
