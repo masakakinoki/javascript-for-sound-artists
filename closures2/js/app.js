@@ -1,17 +1,11 @@
 "use strict";
 
-let globalVariable = "global variable";
-
-function testScope(argInput) {
-  let testScopeLocalVariable = "local variable from testscope";
-  function innerFunction(){
-    let localVariable = "local variable from innerFunction";
-    console.log(argInput);
-    console.log(globalVariable);
-    console.log(testScopeLocalVariable);
-    console.log(localVariable);  
-  }
-  innerFunction();
+function effectsBox() {
+  let component = "pulled out component";
+  return function openEffectsBox(){
+    return component;
+  };
 }
 
-testScope("argument input");
+let getComponent = effectsBox();
+console.log(getComponent());
