@@ -1,5 +1,5 @@
 "use strict";
-
+var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext = new AudioContext();
 // begin custom sound
 function customSound(filterVal){
@@ -37,4 +37,3 @@ function effectsBox(sourceInput, filterParam){
 }
 
 effectsBox(customSound, 130);
-ctx = new(window.AudioContext || window.webkitAudioContext);
