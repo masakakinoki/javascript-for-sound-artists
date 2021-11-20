@@ -24,6 +24,10 @@ div{
   margin-bottom: 20px;
 }
 
+.selected-waveform{
+  outline: 2px solid white;
+}
+
 #oscillator-list{
   padding-left: 0px;
 }

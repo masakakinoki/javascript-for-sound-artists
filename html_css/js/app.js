@@ -24,8 +24,28 @@ window.onload = function () {
   // BEGIN callback to select <li> by id and assign id name to selectedWaveform
 
   function select() {
+
+    // BEGIN select element by id
+    let selectedWaveformElement = document.getElementById(this.id);
+    // END select element by id
+
     selectedWaveform = document.getElementById(this.id).id;
     console.log(selectedWaveform);
+
+    // BEGIN remove any previously added selected-waveform classes
+
+    for (let i = 0; i < waveformTypes.length; i += 1) {
+      waveformTypes[i].classList.remove("selected-waveform");
+    }
+
+    // END remove any previously added selected-waveform classes
+
+    // BEGIN add the selected-waveform class to the selected element
+
+    selectedWaveformElement.classList.add("selected-waveform");
+
+    // END add the selected-waveform class to the selected element
+
   }
 
   // END callback to select <li> by id and assign id name to selectedWaveform
