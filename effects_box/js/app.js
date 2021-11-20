@@ -1,9 +1,8 @@
 "use strict";
 var AudioContext = window.AudioContext || window.webkitAudioContext;
-
 var audioContext = new AudioContext();
 // begin custom sound
-function customSound(filterVal){
+function customSound(filterVal) {
   var osc_1 = audioContext.createOscillator();
   var osc_2 = audioContext.createOscillator();
   var filter = audioContext.createBiquadFilter();
@@ -21,7 +20,7 @@ function customSound(filterVal){
 }
 
 // square wave
-function square(filterVal){
+function square(filterVal) {
   var osc = audioContext.createOscillator();
   var filter = audioContext.createBiquadFilter();
   filter.type = "lowpass";
@@ -33,7 +32,7 @@ function square(filterVal){
   osc.start(audioContext.currentTime);
 }
 
-function effectsBox(sourceInput, filterParam){
+function effectsBox(sourceInput, filterParam) {
   sourceInput(filterParam);
 }
 
