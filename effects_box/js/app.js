@@ -37,3 +37,9 @@ function effectsBox(sourceInput, filterParam) {
 }
 
 effectsBox(customSound, 130);
+
+function touchStarted() {
+  if (getAudioContext().state !== "running") {
+    getAudioContext().resume();
+  }
+}
