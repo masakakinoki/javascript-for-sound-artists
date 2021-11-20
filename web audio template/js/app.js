@@ -1,3 +1,3 @@
 "use strict";
-var AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioContext = new AudioContext();
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioContext = new AudioContext();

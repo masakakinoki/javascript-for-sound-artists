@@ -1,6 +1,6 @@
 "use strict";
-var AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioContext = new AudioContext();
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioContext = new AudioContext();
 // begin custom sound
 function customSound(filterVal) {
   var osc_1 = audioContext.createOscillator();
