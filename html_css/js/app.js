@@ -10,6 +10,35 @@ window.onload = function () {
 
   let freqSliderVal = document.getElementsByTagName("input")[1].value;
 
+  // BEGIN set selected waveform type calue
+
+  let selectedWaveform = "sawtooth";
+
+  // END set selected waveform type value
+
+
+  // BEGIN select all <li> elements
+  let waveformTypes = document.getElementsByTagName("li");
+  // END select all <li> elements
+
+  // BEGIN callback to select <li> by id and assign id name to selectedWaveform
+
+  function select() {
+    selectedWaveform = document.getElementById(this.id).id;
+    console.log(selectedWaveform);
+  }
+
+  // END callback to select <li> by id and assign id name to selectedWaveform
+
+  // BEGIN loop through all <li> elements and set a click eventListner on them
+
+  for (let i = 0; i < waveformTypes.length; i++) {
+    waveformTypes[i].addEventListener("click", select);
+  }
+
+  // END loop through all <li> elements and set a click eventListner on them
+
+
   /*   BEGIN check range slider value and set frequency of oscillator*/
   setInterval(function () {
 
@@ -22,6 +51,7 @@ window.onload = function () {
       freqSliderVal = document.getElementsByTagName("input")[1].value;
       osc.frequency.value = freqSliderVal;
       console.log("Oscillator is playing. Frequency value is " + freqSliderVal);
+      osc.type = selectedWaveform;
     }
 
   }, 50);
