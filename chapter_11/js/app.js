@@ -18,6 +18,7 @@ getSound.send();
 function playback(){
   let playSound = audioContext.createBufferSource();
   playSound.buffer = audioBuffer;
+  playSound.playbackRate.value = 0.1;
   playSound.connect(audioContext.destination);
   playSound.start(audioContext.currentTime);
 }
