@@ -56,7 +56,7 @@ document.getElementById("play-button").addEventListener("click", function () {
     audioCtx.resume();
     audioCtx.onstatechange = () => console.log(audioCtx.state);
   } else {
-    console.log("it's running well!");
+    console.log("it's running");
     osc_1.disconnect();
     osc_2.disconnect();
     oscState = false;
