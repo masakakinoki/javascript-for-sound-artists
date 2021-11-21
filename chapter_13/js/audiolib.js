@@ -7,7 +7,7 @@ function audioFileLoader(fileDirectory) {
     var playSound = undefined;
     var getSound = new XMLHttpRequest();
     soundObj.fileDirectory = fileDirectory;
-    getSound.open("GET", soundObj.fileDirectory, true);
+    getSound.open("get", soundObj.fileDirectory, true);
     getSound.responseType = "arraybuffer";
     getSound.onload = function() {
         audioContext.decodeAudioData(getSound.response, function(buffer) {
@@ -39,6 +39,6 @@ function audioBatchLoader(obj) {
 
     }
 
+    console.log(obj);
     return obj;
-
 }

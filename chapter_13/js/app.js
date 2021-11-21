@@ -12,7 +12,9 @@ var sound = audioBatchLoader({
 
 window.addEventListener("mousedown", function() {
 
-    sound.kick.play();
+    sound.kick.play(0.1);
     sound.snare.play();
+    sound.hihat.play(0.9);
+    sound.shaker.play(1.0);
 
 });

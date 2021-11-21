@@ -24,9 +24,3 @@ function playback(){
 }
 
 window.addEventListener("mousedown", playback);
-
-function touchStarted() {
-  if (getAudioContext().state !== "running") {
-    getAudioContext().resume();
-  }
-}
