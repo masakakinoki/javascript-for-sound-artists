@@ -25,7 +25,6 @@ function customSound(filterVal) {
   filter.connect(audioCtx.destination);
   osc_1.start(audioCtx.currentTime);
   osc_2.start(audioCtx.currentTime);
-  oscState = false;
   console.log(oscState);
 }
 
@@ -47,10 +46,11 @@ function effectsBox(sourceInput, filterParam) {
 }
 
 effectsBox(customSound, 130);
+console.log(audioCtx.state);
 
 document.getElementById("play-button").addEventListener("click", function () {
   
-  if (oscState == false) {
+  if (audioCtx.state !== "running") {
     console.log("it's not running well!");
     // osc_1.connect(filter);
     // osc_2.connect(filter);
