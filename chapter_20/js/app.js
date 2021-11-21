@@ -16,5 +16,4 @@ window.addEventListener("mousedown", function() {
 
     sound.kick.play();
     sound.snare.play();
-
 });

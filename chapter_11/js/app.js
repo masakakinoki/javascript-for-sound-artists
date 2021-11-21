@@ -9,7 +9,7 @@ getSound.responseType = "arraybuffer";
 
 getSound.onload = function () {
   audioContext.decodeAudioData(getSound.response, function (buffer) {
-    audioBuffer = buffer;
+    audioBuffer = buffer; //stored as global variable
   });
 };
 
