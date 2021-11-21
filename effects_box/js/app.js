@@ -66,8 +66,9 @@ document.getElementById("play-button").addEventListener("click", function () {
   }
 });
 
-function touchStarted() {
-  if (audioCtx.state !== "running") {
-    audioCtx.resume();
-  }
-}
+// function touchStarted() {
+//   console.log(audioCtx.state);
+//   if (audioCtx.state !== "running") {
+//     audioCtx.resume();
+//   }
+// }
