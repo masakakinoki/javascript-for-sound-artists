@@ -1,6 +1,8 @@
 "use strict";
-let AudioContext = window.AudioContext || window.webkitAudioContext;
-let audioCtx = new AudioContext();
+// for cross browser
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();
+
 let osc_1;
 let osc_2;
 let filter;
@@ -50,17 +52,17 @@ document.getElementById("play-button").addEventListener("click", function () {
   
   if (oscState == false) {
     console.log("it's not running well!");
-    osc_1.connect(filter);
-    osc_2.connect(filter);
+    // osc_1.connect(filter);
+    // osc_2.connect(filter);
     oscState = true;
     audioCtx.resume();
     audioCtx.onstatechange = () => console.log(audioCtx.state);
   } else {
     console.log("it's running");
-    osc_1.disconnect();
-    osc_2.disconnect();
+    // osc_1.disconnect();
+    // osc_2.disconnect();
     oscState = false;
-    audioCtx.resume();
+    audioCtx.suspend();
     console.log(audioCtx.state);
     audioCtx.onstatechange = () => console.log(audioCtx.state);
   }
