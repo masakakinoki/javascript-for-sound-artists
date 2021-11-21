@@ -25,7 +25,7 @@ function customSound(filterVal) {
   filter.connect(audioCtx.destination);
   osc_1.start(audioCtx.currentTime);
   osc_2.start(audioCtx.currentTime);
-  oscState = true;
+  oscState = false;
   console.log(oscState);
 }
 
