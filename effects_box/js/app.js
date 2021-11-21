@@ -50,21 +50,24 @@ document.getElementById("play-button").addEventListener("click", function () {
   
   if (oscState == false) {
     console.log("it's not running well!");
-    console.log(audioCtx.state);
     osc_1.connect(filter);
     osc_2.connect(filter);
     oscState = true;
+    audioCtx.resume();
+    audioCtx.onstatechange = () => console.log(audioCtx.state);
   } else {
     console.log("it's running well!");
-    console.log(audioCtx.state);
     osc_1.disconnect();
     osc_2.disconnect();
     oscState = false;
+    audioCtx.resume();
+    console.log(audioCtx.state);
+    audioCtx.onstatechange = () => console.log(audioCtx.state);
   }
 });
 
-// function touchStarted() {
-//   if (audioCtx().state !== "running") {
-//     audioCtx().resume();
-//   }
-// }
+function touchStarted() {
+  if (audioCtx.state !== "running") {
+    audioCtx.resume();
+  }
+}
