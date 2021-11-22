@@ -1,7 +1,6 @@
 "use strict";
 
 $(function () {
-
     let futureTickTime = audioCtx.currentTime;
     let counter = 1;
     let tempo = 120;
@@ -23,10 +22,10 @@ $(function () {
 
     //BEGIN Array Tracks
 
-    let kickTrack = [],
-        snareTrack = [],
-        hiHatTrack = [],
-        shakerTrack = [];
+    let kickTrack = [1, 9, 11],
+        snareTrack = [5, 13],
+        hiHatTrack = [13, 14, 15, 16],
+        shakerTrack = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
     //END Array Tracks
 
@@ -42,7 +41,6 @@ $(function () {
     //BEGIN metronome function playMetronome (time, playing)
 
     function playMetronome(time, playing) {
-
         if (playing) {
             osc = audioCtx.createOscillator();
             osc.connect(metronomeVolume);
@@ -60,8 +58,6 @@ $(function () {
     //END Metronome 
 
     function playTick() {
-        secondsPerBeat = 60 / tempo;
-        counterTimeValue = (secondsPerBeat / 4);
         console.log("This is 16th note: " + counter);
         counter += 1;
         futureTickTime += counterTimeValue;
@@ -75,10 +71,12 @@ $(function () {
 
         if (futureTickTime < audioCtx.currentTime + 0.1) {
             playMetronome(futureTickTime, true);
+
             scheduleSound(kickTrack, kick, counter, futureTickTime - audioCtx.currentTime);
             scheduleSound(snareTrack, snare, counter, futureTickTime - audioCtx.currentTime);
             scheduleSound(hiHatTrack, hihat, counter, futureTickTime - audioCtx.currentTime);
             scheduleSound(shakerTrack, shaker, counter, futureTickTime - audioCtx.currentTime);
+
             playTick();
             // console.log("This 16th note is: " + counter);
             // console.log("16th is: " + counterTimeValue);
@@ -88,7 +86,7 @@ $(function () {
         }
         timerID = window.setTimeout(scheduler, 0);
     }
-
+    // scheduler();
     function play() {
         isPlaying = !isPlaying;
 
@@ -100,71 +98,75 @@ $(function () {
             window.clearTimeout(timerID);
         }
     }
-
-    //BEING create grid
-    for (let i = 1; i <= 4; i += 1) {
-
-        $(".app-grid").append("<div class='track-" + i + "-container'</div>");
-
-        for (let j = 1; j < 17; j += 1) {
-
-            $(".track-" + i + "-container").append("<div class='grid-item track-step step-" + j + "'</div>");
-
-        }
-    }
-    //END create grid
-
     $(".play-stop-button").on("click", function () {
-
         play();
-
     });
-
-    $(".metronome").on("click", function () {
-        if (metronomeVolume.gain.value) {
-            metronomeVolume.gain.value = 0;
-
-        } else {
-            metronomeVolume.gain.value = 1;
-        }
-
-
-    });
-    //END metronome toggle
-
-    $("#tempo").on("change", function () {
-        tempo = this.value;
-        $("#showTempo").html(tempo);
-    });
-
-    //BEGIN Grid interactivity
-    function sequenceGridToggler(domEle, arr) {
-        $(domEle).on("mousedown", ".grid-item", function () {
-
-            let gridIndexValue = $(this).index(); //Get index of grid-item
-            let offset = gridIndexValue + 1; //Add +1 so value starts at 1 instead of 0
-            let index = arr.indexOf(offset); //Check if value exists in array
-
-
-            if (index > -1) { //If index of item exists"
-
-                arr.splice(index, 1); //then remove it
-                $(this).css("background-color", ""); // and change color of DOM element to default
-                console.log(arr); 
-
-            } else { //if item does not exit
-                
-                arr.push(offset); //then push it to track array
-                $(this).css("background-color", "purple"); //and change color of DOM element to puple 
-                console.log(arr);           
-            }
-
-        });
-    }
-
-    sequenceGridToggler(".track-1-container", kickTrack);
-    sequenceGridToggler(".track-2-container", snareTrack);
-    sequenceGridToggler(".track-3-container", hiHatTrack);
-    sequenceGridToggler(".track-4-container", shakerTrack);
-
 });
+
+// var kick = audioFileLoader("sounds/kick.mp3");
+// var snare = audioFileLoader("sounds/snare.mp3");
+// var hihat = audioFileLoader("sounds/hihat.mp3");
+
+
+
+// var tempo = 120; //_____BPM (beats per minute)
+// var eighthNoteTime = (60 / tempo) / 2;
+
+/* function playDrums() {
+    // Play 4 bars of the following:
+    for (var bar = 0; bar < 4; bar++) {
+        var time = bar * 8 * eighthNoteTime;
+        // Play the bass (kick) drum on beats 1, 5
+        kick.play(time);
+        kick.play(time + 4 * eighthNoteTime);
+
+
+        // Play the snare drum on beats 3, 7
+        snare.play(time + 2 * eighthNoteTime);
+        snare.play(time + 6 * eighthNoteTime);
+        // Play the hi-hat every eighth note.
+        for (var i = 0; i < 8; ++i) {
+            hihat.play(time + i * eighthNoteTime);
+        }
+    }
+} */
+
+// window.addEventListener("mousedown", function () {
+// playDrums();
+// console.log(sound);
+// sound.kick.play();
+// sound.snare.play(0.1, 0.1, 3.0);
+// sound.hihat.play(0.3);
+// sound.shaker.play(0.4)
+// });
+
+// window.addEventListener("mouseup", function () {
+// console.log(sound);
+// sound.kick.stop();
+// sound.snare.stop();
+// sound.hihat.play(0.3);
+// sound.shaker.play(0.4)
+// }); 
+
+
+/* window.setTimeout(function() {
+    playDrums();
+}, 1500); */
+
+/* 
+console.log(audioCtx.currentTime);
+
+const sound = audioBatchLoader({
+
+    kick: "sounds/kick.mp3",
+    snare: "sounds/snare.mp3",
+    hihat: "sounds/hihat.mp3",
+    shaker: "sounds/shaker.mp3",
+    nodes: function (sound) {
+        let gain = audioCtx.createGain();
+        sound.connect(gain);
+        gain.gain.value = 0.5;
+        gain.connect(audioCtx.destination);
+    }
+});
+*/
