@@ -15,5 +15,7 @@ var sound = audioBatchLoader({
 window.addEventListener("mousedown", function() {
 
     sound.kick.play();
-    sound.snare.play();
+    sound.snare.play(0.1);
+    sound.hihat.play(0.5);
+    console.log(audioContext.buffer);
 });

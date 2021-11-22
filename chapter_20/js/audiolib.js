@@ -1,6 +1,6 @@
 "use strict";
 
-var audioContext = new AudioContext();
+const audioContext = new AudioContext();
 
 function audioFileLoader(fileDirectory) {
     var soundObj = {};
