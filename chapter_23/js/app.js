@@ -1,10 +1,10 @@
 "use strict";
 
 let futureTickTime = audioCtx.currentTime;
-// let counter = 1;
+let counter = 1;
 
 function scheduler() {
-    console.log("scheduler now!");
+    // console.log("scheduler now!");
 
     if (futureTickTime < audioCtx.currentTime + 0.1) {
         // console.log("This is beat: " + counter);
@@ -12,10 +12,10 @@ function scheduler() {
         console.log("Web Audio Time: " + audioCtx.currentTime);
         futureTickTime += 0.5; //can be any time value. 0.5 happens to be a quarter note at 120bpm
         
-        // counter += 1;
-        // if (counter > 4) {
-            // counter = 1;
-        // }
+        counter += 1;
+        if (counter > 4) {
+            counter = 1;
+        }
     }
     window.setTimeout(scheduler, 0);
 }
