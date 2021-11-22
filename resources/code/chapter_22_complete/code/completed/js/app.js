@@ -18,7 +18,7 @@ var sound = audioBatchLoader({
     nodes: function(sound) {
         var gain = audioContext.createGain();
         sound.connect(gain);
-        gain.gain.value = 0.3;
+        gain.gain.value = 0.8;
         gain.connect(audioContext.destination);
 
     }
@@ -27,9 +27,9 @@ var sound = audioBatchLoader({
 
 
 window.addEventListener("mousedown", function() {
-    sound.snare.play();
+    sound.kick.play();
 });
 
 window.addEventListener("mouseup", function() {
-    sound.snare.stop();
+    sound.kick.stop();
 });
