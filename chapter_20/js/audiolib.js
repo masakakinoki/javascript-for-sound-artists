@@ -1,16 +1,17 @@
 "use strict";
-
-const audioContext = new AudioContext();
+// for cross browser
+const AudioContext = window.AudioContext || window.webkitaudioCtx;
+const audioCtx = new AudioContext();
 
 function audioFileLoader(fileDirectory) {
-    var soundObj = {};
-    var playSound = undefined;
-    var getSound = new XMLHttpRequest();
+    let soundObj = {};
+    let playSound = undefined;
+    let getSound = new XMLHttpRequest();
     soundObj.fileDirectory = fileDirectory;
     getSound.open("GET", soundObj.fileDirectory, true);
     getSound.responseType = "arraybuffer";
-    getSound.onload = function() {
-        audioContext.decodeAudioData(getSound.response, function(buffer) {
+    getSound.onload = function () {
+        audioCtx.decodeAudioData(getSound.response, function (buffer) {
             soundObj.soundToPlay = buffer;
 
         });
@@ -18,15 +19,17 @@ function audioFileLoader(fileDirectory) {
 
     getSound.send();
 
-    soundObj.play = function(time) {
-        playSound = audioContext.createBufferSource();
+    soundObj.play = function (time, setStart, setDuration) {
+        playSound = audioCtx.createBufferSource();
         playSound.buffer = soundObj.soundToPlay;
-        playSound.connect(audioContext.destination);
-        playSound.start(audioContext.currentTime + time || audioContext.currentTime);
+        playSound.connect(audioCtx.destination);
+        playSound.start(audioCtx.currentTime + time || audioCtx.currentTime, setStart || 0, setDuration || soundObj.soundToPlay.duration);
+        console.log(playSound.buffer);
+        console.log(playSound.buffer.duration);
     };
 
-    soundObj.stop = function(time) {
-        playSound.stop(audioContext.currentTime + time || audioContext.currentTime);
+    soundObj.stop = function (time) {
+        playSound.stop(audioCtx.currentTime + time || audioCtx.currentTime);
     };
     return soundObj;
 }

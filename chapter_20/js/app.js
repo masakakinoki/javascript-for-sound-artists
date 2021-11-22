@@ -1,8 +1,8 @@
 "use strict";
 
-console.log(audioContext.currentTime);
+console.log(audioCtx.currentTime);
 
-var sound = audioBatchLoader({
+const sound = audioBatchLoader({
 
     kick: "sounds/kick.mp3",
     snare: "sounds/snare.mp3",
@@ -14,8 +14,8 @@ var sound = audioBatchLoader({
 
 window.addEventListener("mousedown", function() {
 
-    sound.kick.play();
-    sound.snare.play(0.1);
-    sound.hihat.play(0.5);
-    console.log(audioContext.buffer);
+    // sound.kick.play();
+    sound.snare.play(0.1, 0.1, 3.0);
+    // sound.hihat.play(0.3);
+    // sound.shaker.play(0.4)
 });
