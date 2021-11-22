@@ -1,5 +1,27 @@
 "use strict";
 
+let futureTickTime = audioCtx.currentTime;
+// let counter = 1;
+
+function scheduler() {
+    console.log("scheduler now!");
+
+    if (futureTickTime < audioCtx.currentTime + 0.1) {
+        // console.log("This is beat: " + counter);
+        console.log("futureTickTime: " + futureTickTime);
+        console.log("Web Audio Time: " + audioCtx.currentTime);
+        futureTickTime += 0.5; //can be any time value. 0.5 happens to be a quarter note at 120bpm
+        
+        // counter += 1;
+        // if (counter > 4) {
+            // counter = 1;
+        // }
+    }
+    window.setTimeout(scheduler, 0);
+}
+scheduler();
+
+
 var kick = audioFileLoader("sounds/kick.mp3");
 var snare = audioFileLoader("sounds/snare.mp3");
 var hihat = audioFileLoader("sounds/hihat.mp3");
@@ -38,11 +60,11 @@ window.addEventListener("mousedown", function () {
 });
 
 // window.addEventListener("mouseup", function () {
-    // console.log(sound);
-    // sound.kick.stop();
-    // sound.snare.stop();
-    // sound.hihat.play(0.3);
-    // sound.shaker.play(0.4)
+// console.log(sound);
+// sound.kick.stop();
+// sound.snare.stop();
+// sound.hihat.play(0.3);
+// sound.shaker.play(0.4)
 // }); 
 
 
