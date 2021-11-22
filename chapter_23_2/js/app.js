@@ -2,12 +2,21 @@
 
 let futureTickTime = audioCtx.currentTime;
 let counter = 1;
+let osc = audioCtx.createOscillator();
+let metronomeVolume = audioCtx.createGain();
+function playMetronome(time) {
+    osc = audioCtx.createOscillator();
+    osc.connect(metronomeVolume);
+    metronomeVolume.connect(audioCtx.destination);
+    osc.start(time);
+    osc.stop(time + 0.1);
+}
 
 function scheduler() {
     // console.log("scheduler now!");
 
     if (futureTickTime < audioCtx.currentTime + 0.1) {
-        console.log("This is beat: " + counter);
+        // console.log("This is beat: " + counter);
         console.log("futureTickTime: " + futureTickTime);
         console.log("Web Audio Time: " + audioCtx.currentTime);
         futureTickTime += 0.5; //can be any time value. 0.5 happens to be a quarter note at 120bpm
