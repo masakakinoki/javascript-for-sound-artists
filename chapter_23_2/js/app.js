@@ -74,14 +74,14 @@ function playDrums() {
     }
 }
 
-// window.addEventListener("mousedown", function () {
-// playDrums();
+window.addEventListener("mousedown", function () {
+playDrums();
 // console.log(sound);
 // sound.kick.play();
 // sound.snare.play(0.1, 0.1, 3.0);
 // sound.hihat.play(0.3);
 // sound.shaker.play(0.4)
-// });
+});
 
 // window.addEventListener("mouseup", function () {
 // console.log(sound);
